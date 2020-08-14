@@ -17,6 +17,9 @@
     ]
   },
   "angularCompilerOptions": {
+    "types": [
+      "node"
+    ],
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }

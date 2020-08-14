@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthserviceService} from './Services/Auth/authservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProjectClient';
+  constructor(public auth: AuthserviceService) {
+  }
 }
