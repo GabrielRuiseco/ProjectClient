@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {AuthserviceService} from './Services/Auth/authservice.service';
 import {AuthGuardserviceService} from './Services/Auth-Guard/auth-guardservice.service';
 import {TokenInterceptorService} from './Services/token-interceptor.service';
+import {GalleryService} from './Services/Gallery/gallery.service';
 
 // Routes
 import {APP_ROUTING} from './Routes/app.routes';
@@ -18,6 +19,8 @@ import {HomeComponent} from './Components/MasterComponents/home/home.component';
 import {LoginComponent} from './Components/UserComponents/login/login.component';
 import {ProfileComponent} from './Components/UserComponents/profile/profile.component';
 import {RegisterComponent} from './Components/UserComponents/register/register.component';
+import {GalleryComponent} from './Components/Gallery/gallery/gallery.component';
+import { FaceApiComponent } from './Components/Gallery/face-api/face-api.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import {RegisterComponent} from './Components/UserComponents/register/register.c
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    RegisterComponent
+    RegisterComponent,
+    GalleryComponent,
+    FaceApiComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import {RegisterComponent} from './Components/UserComponents/register/register.c
   providers: [
     AuthserviceService,
     AuthGuardserviceService,
+    GalleryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
