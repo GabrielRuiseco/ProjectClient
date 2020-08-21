@@ -21,10 +21,10 @@ export class FaceApiComponent implements OnInit {
     }
   }
 
-  delete(file: File): void {
-    this.galleryService.deleteFileBD(file)
-      .subscribe(() => console.log('file deleted from DB'));
-    this.galleryService.deleteFileSvr(file).subscribe(() => console.log('file deleted from Svr'));
-  }
+  // delete(file: File): void {
+  //   this.galleryService.deleteFileBD(file)
+  //     .subscribe(() => console.log('file deleted from DB'));
+  //   this.galleryService.deleteFileSvr(file).subscribe(() => console.log('file deleted from Svr'));
+  // }
 
 }

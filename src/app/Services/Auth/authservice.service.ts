@@ -37,7 +37,7 @@ export class AuthserviceService {
   }
 
   public navItems(): boolean {
-    if (this.state) {
+    if (localStorage.getItem('value') === 'true') {
       return true;
     } else {
       return false;
@@ -56,6 +56,7 @@ export class AuthserviceService {
         if (data.token) {
           this.saveToken(data.token);
           this.state = true;
+          localStorage.setItem('value', this.state.toString());
         }
       })
     );
@@ -67,6 +68,7 @@ export class AuthserviceService {
 
   public logout(): void {
     this.state = false;
+    window.localStorage.removeItem('value');
     this.token = '';
     window.localStorage.removeItem('userToken');
     this.router.navigateByUrl('/');

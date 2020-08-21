@@ -3,6 +3,7 @@ import {GalleryService, File} from '../../../Services/Gallery/gallery.service';
 import {HttpClient} from '@angular/common/http';
 import {AuthserviceService} from '../../../Services/Auth/authservice.service';
 import {Router} from '@angular/router';
+import {newArray} from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-gallery',
@@ -18,6 +19,11 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFiles();
+    this.galleryVoid();
+  }
+
+  galleryVoid() {
+    return this.files !== undefined && this.files[0] !== undefined;
   }
 
   getFiles(): void {
@@ -25,19 +31,31 @@ export class GalleryComponent implements OnInit {
       this.galleryService.getFile(data.id).subscribe(files => (this.files = files))));
   }
 
-  delete(file: File): void {
-    this.files = this.files.filter(h => h !== file);
-    this.galleryService.deleteFileBD(file)
-      .subscribe(() => console.log('file deleted from DB'));
-    this.galleryService.deleteFileSvr(file).subscribe(() => console.log('file deleted from Svr'));
+  delete(index: number): void {
+    const fileName = this.files[index].fileName;
+    const _id = this.files[index]._id;
+    this.files = this.files.filter(h => h !== this.files[index]);
+    this.galleryService.deleteFileSvr(fileName).subscribe(() => console.log('file deleted from Svr'));
+    this.galleryService.deleteFileBD(_id).subscribe(() => console.log('file deleted from DB'));
   }
 
-  returnFile(idx: number) {
-    return this.files[idx];
+  deletebd(index: number) {
+    const file = this.files[index];
+    console.log(file);
   }
 
   async fileMenu(idx: number) {
     await this.galleryService.setFileData(this.files[idx]);
     await this.router.navigate(['/faceApi']);
+  }
+
+  open(index: number) {
+    console.log(index);
+    console.log(this.files[index]);
+    console.log(this.files[index].fileName);
+  }
+
+  redirect() {
+    this.router.navigate(['/profile']);
   }
 }

@@ -21,16 +21,17 @@ export class GalleryService {
   }
 
   getFile(id: number): Observable<File[]> {
-    return this.http.post<File[]>('api/index/', id);
+    return this.http.get<File[]>(`api/index/${id}`);
   }
 
-  deleteFileBD(file: File): Observable<{}> {
-    const url = `api/delete/${file.id}`;
+  deleteFileBD(fx: string): Observable<{}> {
+    const url = `api/delete/${fx}`;
     return this.http.delete(url);
   }
 
-  deleteFileSvr(file: File): Observable<{}> {
-    return this.http.put('api/deleteimg', file.fileName);
+  deleteFileSvr(f: string): Observable<{}> {
+    const url = `api/deleteimg/${f}`;
+    return this.http.delete(url);
   }
 
   // downloadFile(file: File): Observable<any> {
@@ -39,7 +40,7 @@ export class GalleryService {
 }
 
 export interface File {
-  id: string;
+  _id: string;
   fileName: string;
   filePath: string;
   uid: string;

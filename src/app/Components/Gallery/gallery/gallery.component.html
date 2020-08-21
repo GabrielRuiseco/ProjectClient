@@ -1,11 +1,20 @@
-<div class="row justify-content-center">
-  <div class="col-sm-5 col-md-4 col-xl-3 mx-auto">
-    <div class="card" *ngFor="let file of files; let i = index">
-      <img class="card-img" [src]="'http://127.0.0.1:3000/api/downloadit/'+file.fileName" alt="imagen">
+<div class="row justify-content-start">
+  <div class="col-sm-5 col-md-4 col-xl-3 mx-auto" *ngFor="let file of files; let i = index">
+    <div class="card mb-3">
+      <img class="card-img" [src]="'http://127.0.0.1:3000/api/downloadit/'+file.fileName" alt="imagen" width="200"
+           height="200">
       <div class="card-footer">
-        <a (click)="delete(file)"  class="btn btn-warning">Dismiss</a>
-        <a (click)="fileMenu()"  class="btn btn-warning">Create Key</a>
+        <a (click)="delete(i); deletebd(i)" class="btn btn-warning btn-block">Dismiss</a>
       </div>
+      <div class="card-footer"><a (click)="open(i)" class="btn btn-success btn-block">Open</a></div>
     </div>
   </div>
+</div>
+<div *ngIf="!galleryVoid()">
+<div class="row justify-content-center  mr-1 mb-3">
+  <h1 class="text-white">EMPTY GALLERY</h1>
+</div>
+<div class="row justify-content-center  mr-1 mb-3">
+  <a (click)="redirect()" [routerLink]="['/profile']" class="btn btn-warning"> GO BACK</a>
+</div>
 </div>
