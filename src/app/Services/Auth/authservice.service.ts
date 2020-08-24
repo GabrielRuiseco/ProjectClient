@@ -29,11 +29,11 @@ export class AuthserviceService {
   }
 
   public getUserDetails(): Observable<any> {
-    return this.http.get('emp/loggedIn');
+    return this.http.get('http://192.168.0.14:8080/emp/loggedIn');
   }
 
   public isLoggedIn(): Observable<any> {
-    return this.http.get('emp/loginCheck');
+    return this.http.get('http://192.168.0.14:8080/emp/loginCheck');
   }
 
   public navItems(): boolean {
@@ -45,11 +45,11 @@ export class AuthserviceService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.http.post(`/emp/register`, user);
+    return this.http.post(`http://192.168.0.14:8080/emp/register`, user);
   }
 
   public login(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`/emp/login`, user);
+    const base = this.http.post(`http://192.168.0.14:8080/emp/login`, user);
 
     return base.pipe(
       map((data: TokenResponse) => {
@@ -63,7 +63,7 @@ export class AuthserviceService {
   }
 
   public profile(id): Observable<any> {
-    return this.http.get(`/emp/getuser/${id}`);
+    return this.http.get(`http://192.168.0.14:8080/emp/getuser/${id}`);
   }
 
   public logout(): void {

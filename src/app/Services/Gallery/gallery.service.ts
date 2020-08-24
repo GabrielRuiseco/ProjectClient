@@ -21,16 +21,16 @@ export class GalleryService {
   }
 
   getFile(id: number): Observable<File[]> {
-    return this.http.get<File[]>(`api/index/${id}`);
+    return this.http.get<File[]>(`http://192.168.0.14:8080/api/index/${id}`);
   }
 
   deleteFileBD(fx: string): Observable<{}> {
-    const url = `api/delete/${fx}`;
+    const url = `http://192.168.0.14:8080/api/delete/${fx}`;
     return this.http.delete(url);
   }
 
   deleteFileSvr(f: string): Observable<{}> {
-    const url = `api/deleteimg/${f}`;
+    const url = `http://192.168.0.14:8080/api/deleteimg/${f}`;
     return this.http.delete(url);
   }
 
