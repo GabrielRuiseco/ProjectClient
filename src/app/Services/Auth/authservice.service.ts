@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment.prod';
 
 
 @Injectable({
@@ -29,11 +30,11 @@ export class AuthserviceService {
   }
 
   public getUserDetails(): Observable<any> {
-    return this.http.get('http://192.168.0.14:8080/emp/loggedIn');
+    return this.http.get(environment.api + '/emp/loggedIn');
   }
 
   public isLoggedIn(): Observable<any> {
-    return this.http.get('http://192.168.0.14:8080/emp/loginCheck');
+    return this.http.get(environment.api + '/emp/loginCheck');
   }
 
   public navItems(): boolean {
@@ -45,11 +46,11 @@ export class AuthserviceService {
   }
 
   public register(user: TokenPayload): Observable<any> {
-    return this.http.post(`http://192.168.0.14:8080/emp/register`, user);
+    return this.http.post(`${environment.api}/emp/register`, user);
   }
 
   public login(user: TokenPayload): Observable<any> {
-    const base = this.http.post(`http://192.168.0.14:8080/emp/login`, user);
+    const base = this.http.post(`${environment.api}/emp/login`, user);
 
     return base.pipe(
       map((data: TokenResponse) => {
@@ -63,7 +64,7 @@ export class AuthserviceService {
   }
 
   public profile(id): Observable<any> {
-    return this.http.get(`http://192.168.0.14:8080/emp/getuser/${id}`);
+    return this.http.get(`${environment.api}/emp/getuser/${id}`);
   }
 
   public logout(): void {
