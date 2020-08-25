@@ -49,10 +49,12 @@ export class GalleryComponent implements OnInit {
     await this.router.navigate(['/faceApi']);
   }
 
-  open(index: number) {
-    console.log(index);
-    console.log(this.files[index]);
-    console.log(this.files[index].fileName);
+  async open() {
+    await this.galleryService.getOpen().subscribe(() => console.log('Door Opened'));
+  }
+
+  async close() {
+    await this.galleryService.getClose().subscribe(() => console.log('Door Closed'));
   }
 
   redirect() {

@@ -24,6 +24,14 @@ export class GalleryService {
     return this.http.get<File[]>(`http://192.168.0.14:8080/api/index/${id}`);
   }
 
+  getOpen(): Observable<any> {
+    return this.http.get<File[]>(`http://192.168.0.14:8080/api/open/1`);
+  }
+
+  getClose(): Observable<any> {
+    return this.http.get<File[]>(`http://192.168.0.14:8080/api/open/0`);
+  }
+
   deleteFileBD(fx: string): Observable<{}> {
     const url = `http://192.168.0.14:8080/api/delete/${fx}`;
     return this.http.delete(url);

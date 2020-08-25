@@ -6,7 +6,7 @@
       <div class="card-footer">
         <a (click)="delete(i); deletebd(i)" class="btn btn-warning btn-block">Dismiss</a>
       </div>
-      <div class="card-footer"><a (click)="open(i)" class="btn btn-success btn-block">Open</a></div>
+      <div class="card-footer"><a (click)="open()" class="btn btn-success btn-block">Open</a></div>
     </div>
   </div>
 </div>
@@ -14,7 +14,10 @@
 <div class="row justify-content-center  mr-1 mb-3">
   <h1 class="text-white">EMPTY GALLERY</h1>
 </div>
-<div class="row justify-content-center  mr-1 mb-3">
-  <a (click)="redirect()" [routerLink]="['/profile']" class="btn btn-warning"> GO BACK</a>
+<div class="row justify-content-center  mr-1 mb-1">
+  <a (click)="redirect()" [routerLink]="['/profile']" class="btn btn-warning">GO BACK</a>
+</div>
+  <div class="row justify-content-center  mr-1 mb-1">
+  <a (click)="close()"  class="btn btn-warning">Close</a>
 </div>
 </div>
