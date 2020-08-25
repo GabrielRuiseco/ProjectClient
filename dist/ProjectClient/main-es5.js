@@ -283,11 +283,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function GalleryComponent_div_1_Template_a_click_7_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r5);
 
-          var i_r3 = ctx.index;
-
           var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
 
-          return ctx_r6.open(i_r3);
+          return ctx_r6.open();
         });
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Open");
@@ -306,7 +304,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", "http://127.0.0.1:3000/api/downloadit/" + file_r2.fileName, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("src", "http://192.168.0.14/api/downloadit/" + file_r2.fileName, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsanitizeUrl"]);
       }
     }
 
@@ -330,9 +328,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "div", 11);
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "a", 12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function GalleryComponent_div_2_Template_a_click_5_listener() {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r8);
@@ -342,7 +340,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return ctx_r7.redirect();
         });
 
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, " GO BACK");
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6, "GO BACK");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "div", 11);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "a", 13);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function GalleryComponent_div_2_Template_a_click_8_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r8);
+
+          var ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+
+          return ctx_r9.close();
+        });
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9, "Close");
 
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -438,10 +454,45 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "open",
-        value: function open(index) {
-          console.log(index);
-          console.log(this.files[index]);
-          console.log(this.files[index].fileName);
+        value: function open() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.next = 2;
+                    return this.galleryService.getOpen().subscribe(function () {
+                      return console.log('Door Opened');
+                    });
+
+                  case 2:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2, this);
+          }));
+        }
+      }, {
+        key: "close",
+        value: function close() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    _context3.next = 2;
+                    return this.galleryService.getClose().subscribe(function () {
+                      return console.log('Door Closed');
+                    });
+
+                  case 2:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
         }
       }, {
         key: "redirect",
@@ -463,7 +514,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵProvidersFeature"]([_Services_Gallery_gallery_service__WEBPACK_IMPORTED_MODULE_2__["GalleryService"]])],
       decls: 3,
       vars: 2,
-      consts: [[1, "row", "justify-content-start"], ["class", "col-sm-5 col-md-4 col-xl-3 mx-auto", 4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "col-sm-5", "col-md-4", "col-xl-3", "mx-auto"], [1, "card", "mb-3"], ["alt", "imagen", "width", "200", "height", "200", 1, "card-img", 3, "src"], [1, "card-footer"], [1, "btn", "btn-warning", "btn-block", 3, "click"], [1, "btn", "btn-success", "btn-block", 3, "click"], [1, "row", "justify-content-center", "mr-1", "mb-3"], [1, "text-white"], [1, "btn", "btn-warning", 3, "routerLink", "click"]],
+      consts: [[1, "row", "justify-content-start"], ["class", "col-sm-5 col-md-4 col-xl-3 mx-auto", 4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "col-sm-5", "col-md-4", "col-xl-3", "mx-auto"], [1, "card", "mb-3"], ["alt", "imagen", "width", "200", "height", "200", 1, "card-img", 3, "src"], [1, "card-footer"], [1, "btn", "btn-warning", "btn-block", 3, "click"], [1, "btn", "btn-success", "btn-block", 3, "click"], [1, "row", "justify-content-center", "mr-1", "mb-3"], [1, "text-white"], [1, "row", "justify-content-center", "mr-1", "mb-1"], [1, "btn", "btn-warning", 3, "routerLink", "click"], [1, "btn", "btn-warning", 3, "click"]],
       template: function GalleryComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
@@ -472,7 +523,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, GalleryComponent_div_2_Template, 7, 2, "div", 2);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, GalleryComponent_div_2_Template, 10, 2, "div", 2);
         }
 
         if (rf & 2) {
@@ -1695,14 +1746,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AuthGuardserviceService, [{
         key: "canActivate",
         value: function canActivate() {
-          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+          return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             var _this6 = this;
 
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
-                switch (_context2.prev = _context2.next) {
+                switch (_context4.prev = _context4.next) {
                   case 0:
-                    _context2.next = 2;
+                    _context4.next = 2;
                     return this.auth.isLoggedIn().toPromise().then(function (result) {
                       console.log(result);
                       _this6.res = result;
@@ -1710,22 +1761,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   case 2:
                     if (this.res) {
-                      _context2.next = 7;
+                      _context4.next = 7;
                       break;
                     }
 
                     this.router.navigateByUrl('/');
-                    return _context2.abrupt("return", false);
+                    return _context4.abrupt("return", false);
 
                   case 7:
-                    return _context2.abrupt("return", true);
+                    return _context4.abrupt("return", true);
 
                   case 8:
                   case "end":
-                    return _context2.stop();
+                    return _context4.stop();
                 }
               }
-            }, _callee2, this);
+            }, _callee4, this);
           }));
         }
       }]);
@@ -1796,13 +1847,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../../../environments/environment.prod */
+    "./src/environments/environment.prod.ts");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
@@ -1832,12 +1889,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUserDetails",
         value: function getUserDetails() {
-          return this.http.get('emp/loggedIn');
+          return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["environment"].api + '/emp/loggedIn');
         }
       }, {
         key: "isLoggedIn",
         value: function isLoggedIn() {
-          return this.http.get('emp/loginCheck');
+          return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["environment"].api + '/emp/loginCheck');
         }
       }, {
         key: "navItems",
@@ -1851,14 +1908,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "register",
         value: function register(user) {
-          return this.http.post("/emp/register", user);
+          return this.http.post("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["environment"].api, "/emp/register"), user);
         }
       }, {
         key: "login",
         value: function login(user) {
           var _this7 = this;
 
-          var base = this.http.post("/emp/login", user);
+          var base = this.http.post("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["environment"].api, "/emp/login"), user);
           return base.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(function (data) {
             if (data.token) {
               _this7.saveToken(data.token);
@@ -1871,7 +1928,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "profile",
         value: function profile(id) {
-          return this.http.get("/emp/getuser/".concat(id));
+          return this.http.get("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["environment"].api, "/emp/getuser/").concat(id));
         }
       }, {
         key: "logout",
@@ -1888,7 +1945,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     AuthserviceService.ɵfac = function AuthserviceService_Factory(t) {
-      return new (t || AuthserviceService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+      return new (t || AuthserviceService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]));
     };
 
     AuthserviceService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -1906,9 +1963,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }];
       }, null);
     })();
@@ -1944,7 +2001,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../../environments/environment.prod */
+    "./src/environments/environment.prod.ts");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
 
@@ -1968,18 +2031,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFile",
         value: function getFile(id) {
-          return this.http.get("api/index/".concat(id));
+          return this.http.get("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].api, "/api/index/").concat(id));
+        }
+      }, {
+        key: "getOpen",
+        value: function getOpen() {
+          return this.http.get("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].api, "/api/open/1"));
+        }
+      }, {
+        key: "getClose",
+        value: function getClose() {
+          return this.http.get("".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].api, "/api/open/0"));
         }
       }, {
         key: "deleteFileBD",
         value: function deleteFileBD(fx) {
-          var url = "api/delete/".concat(fx);
+          var url = "".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].api, " api/delete/").concat(fx);
           return this.http["delete"](url);
         }
       }, {
         key: "deleteFileSvr",
         value: function deleteFileSvr(f) {
-          var url = "api/deleteimg/".concat(f);
+          var url = "".concat(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_1__["environment"].api, "/api/deleteimg/").concat(f);
           return this.http["delete"](url);
         }
       }]);
@@ -1988,7 +2061,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }();
 
     GalleryService.ɵfac = function GalleryService_Factory(t) {
-      return new (t || GalleryService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]));
+      return new (t || GalleryService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]));
     };
 
     GalleryService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
@@ -2006,7 +2079,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }]
       }], function () {
         return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]
+          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
         }];
       }, null);
     })();
@@ -2384,6 +2457,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/environments/environment.prod.ts":
+  /*!**********************************************!*\
+    !*** ./src/environments/environment.prod.ts ***!
+    \**********************************************/
+
+  /*! exports provided: environment */
+
+  /***/
+  function srcEnvironmentsEnvironmentProdTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "environment", function () {
+      return environment;
+    });
+
+    var environment = {
+      production: true,
+      api: 'http://3.85.144.25:4000'
+    };
+    /***/
+  },
+
+  /***/
   "./src/environments/environment.ts":
   /*!*****************************************!*\
     !*** ./src/environments/environment.ts ***!
@@ -2407,7 +2507,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
     var environment = {
-      production: false
+      production: false,
+      api: 'http://3.85.144.25:4000'
     };
     /*
      * For easier debugging in development mode, you can import the following file
